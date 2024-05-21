@@ -1,7 +1,7 @@
 {
-  "name": "discord-bot_online_mr.manager",
-  "version": "0.3.1",
-  "description": "Bot for Discord-Servers",
+  "name": "discord-bot_for_RandomGamingServer",
+  "version": "0.1.0",
+  "description": "Bot for Discord-Server",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js"
@@ -13,9 +13,9 @@
   "author": "Elias Maurer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Elmaron/Discord-Bot_online_Mr.Manager/issues"
+    "url": "https://github.com/Elmaron/Random-Gaming-Server/issues"
   },
-  "homepage": "https://github.com/Elmaron/Discord-Bot_online_Mr.Manager#readme",
+  "homepage": "https://github.com/Elmaron/Random-Gaming-Server#readme",
   "dependencies": {
     "diff": "^5.0.0",
     "discord.js": "^12.5.3",
