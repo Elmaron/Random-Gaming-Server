@@ -1,0 +1,28 @@
+{
+  "name": "discord-bot_online_mr.manager",
+  "version": "0.3.1",
+  "description": "Bot for Discord-Servers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elmaron/Discord-Bot_online_Mr.Manager.git"
+  },
+  "author": "Elias Maurer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elmaron/Discord-Bot_online_Mr.Manager/issues"
+  },
+  "homepage": "https://github.com/Elmaron/Discord-Bot_online_Mr.Manager#readme",
+  "dependencies": {
+    "diff": "^5.0.0",
+    "discord.js": "^12.5.3",
+    "figlet": "^1.5.0",
+    "glob": "^7.1.6",
+    "moment": "^2.29.1",
+    "ms": "^2.1.3",
+    "node-fetch": "^2.6.1"
+  }
+}
