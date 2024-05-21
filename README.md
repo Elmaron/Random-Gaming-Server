@@ -1,18 +1,28 @@
 # RandomGamingServer
- Hier gibt es detailierte Updates zum Server & den Code des Discord-Bots.
 
- In CHANGELOG.md findet ihr alle Änderungen zum Bot und der Dateien hier auf Github, während Änderungen am Server selbst in SERVER-CHANGELOD.md zu finden sind.
+Hier gibt es detailierte Updates zum Server & den Code des Discord-Bots.
 
- Um es mir selbst etwas einfacher bei der Entwicklung zu machen, habe ich dem Bot Administratorberechtigungen auf dem Server gegeben. Er kann damit mehr oder weniger alles auf dem Server machen, was eben programmiert ist. Damit ihr allerdings Gewissheit darüber behalten könnt, ob ich eure Daten klaue oder irgendwie auslese, habe ich beschlossen, den Code hier auf Github frei zugänglich zu machen. Vor der ersten fertigen und veröffentlichten Version findet ihr allerdings keine Erklärungen im Code selbst, da ich den erst später hinzugefügt habe.
- Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne herunterladen und damit euren eigenen Serverbot entwickeln. Wollt ihr es euch einfach machen, würde ich euch empfehlen, nichts in dem Ordner "Structures" anzufassen und darauf aufbauend nur im Ordner Events Dinge abzuändern und Commands (im Ordner Commands) hinzuzufügen. Achtung: Nehmt ihr Änderungen an message.js vor, passt auf, nicht versehentlich etwas zu löschen, da ggf. sonst keine normalen Befehle mehr ausgeführt werden können.
- Übrigens befindet sich das Token natürlich nicht im Code, nur der Standort, auf den zugegriffen wird. Diese Datei sieht in etwa so inhaltlich aus:
+In CHANGELOG.md findet ihr alle Ã„nderungen zum Bot und der Dateien hier auf Github, wÃ¤hrend Ã„nderungen am Server selbst in SERVER-CHANGELOD.md zu finden sind.
+
+Um es mir selbst etwas einfacher bei der Entwicklung zu machen, habe ich dem Bot Administratorberechtigungen auf dem Server gegeben. Er kann damit mehr oder weniger alles auf dem Server machen, was eben programmiert ist. Damit ihr allerdings Gewissheit darÃ¼ber behalten kÃ¶nnt, ob ich eure Daten klaue oder irgendwie auslese, habe ich beschlossen, den Code hier auf Github frei zugÃ¤nglich zu machen. Vor der ersten fertigen und verÃ¶ffentlichten Version findet ihr allerdings keine ErklÃ¤rungen im Code selbst, da ich den erst spÃ¤ter hinzugefÃ¼gt habe.
+Der Code steht euch ansonsten frei zur VerfÃ¼gung, ihr kÃ¶nnt ihn auch gerne herunterladen und damit euren eigenen Serverbot entwickeln. Wollt ihr es euch einfach machen, wÃ¼rde ich euch empfehlen, nichts in dem Ordner "Structures" anzufassen und darauf aufbauend nur im Ordner Events Dinge abzuÃ¤ndern und Commands (im Ordner Commands) hinzuzufÃ¼gen. Achtung: Nehmt ihr Ã„nderungen an message.js vor, passt auf, nicht versehentlich etwas zu lÃ¶schen, da ggf. sonst keine normalen Befehle mehr ausgefÃ¼hrt werden kÃ¶nnen.
+Ãœbrigens befindet sich das Token nicht im Code, nur der Standort, auf den zugegriffen wird (damit es fÃ¼r Fremde Zwecke nicht ausgelesen und missbraucht werden kann!). Diese Datei sieht in etwa so inhaltlich aus:
 
 {
-	"token": "<Discord-Token>",
-	"prefix": "<Bot-Prefix>",
-	"owners": [ "<User-Id>" ]
+    "token": "<Discord-Token>",
+    "prefix": "<Bot-Prefix>",
+    "owners": [ "<User-Id>" ],
+Â Â Â Â "twitch": "<Kanalname>"
+
+Â }
+
+Ihr mÃ¼sst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben mÃ¶chte. Etwas Ã¤hnliches gilt auch fÃ¼r die zweite Konfigurationsdatei, die die Informationen fÃ¼r die Twitch API enthÃ¤lt:
+
+{
+  "client_id": "<Client-id>",
+  "client_secret": "<Client-secret>"
 }
 
-Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte.
 
-Übrigens müsste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufügen, sobald ich diese gefunden habe.
+
+Ãœbrigens mÃ¼sste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufÃ¼gen, sobald ich diese gefunden habe.
