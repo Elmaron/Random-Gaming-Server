@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const Event = require('../Structures/Event');
 const config = require("../../../../SECRET DISCORD ADDITIONS/config.json");
-const twitchConfig = require("../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
+//const twitchConfig = require("../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
 
 let localClient;
 let liveMessageSent = false;
@@ -38,7 +38,7 @@ module.exports = class extends Event {
         let i = 0;
         setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000);
 		
-		setInterval(sendLiveMessage, 1 * 20 * 1000)
+		setInterval(sendLiveMessage, 2 * 60 * 1000)
         // this.client.user.setActivity('discord.js', { type: 'WATCHING' });
     }
 }
@@ -51,8 +51,8 @@ async function getAuthToken() {
 	  'Content-Type': 'application/x-www-form-urlencoded'
 	},
 	body: new URLSearchParams({
-	  client_id: twitchConfig.client_id,
-	  client_secret: twitchConfig.client_secret,
+	  client_id: config.TwitchAPI.client_id,
+	  client_secret: config.TwitchAPI.client_secret,
 	  grant_type: 'client_credentials'
 	}).toString()
   });
@@ -68,7 +68,7 @@ async function sendLiveMessage() {
 		
 	const userResponse = await fetch(`https://api.twitch.tv/helix/users?login=${config.RandomGamingServer.Livestream.twitchChannels}`, {
 		headers: {
-		  'Client-ID': twitchConfig.client_id,
+		  'Client-ID': config.TwitchAPI.client_id,
 		  'Authorization': `Bearer ${token}`
 		}
 	});
@@ -78,7 +78,7 @@ async function sendLiveMessage() {
 	
 	const streamResponse = await fetch(`https://api.twitch.tv/helix/streams?user_id=${userId}`, {
 		headers: {
-		  'Client-ID': twitchConfig.client_id,
+		  'Client-ID': config.TwitchAPI.client_id,
 		  'Authorization': `Bearer ${token}`
 		}
 	});

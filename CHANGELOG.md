@@ -5,6 +5,30 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2024-05-22
+
+### Fixed
+
+- raw.js 
+  
+  - In der Konsole wurden die Rollennamen nicht korrekt angezeigt, wenn sie einer neuen Person zugewiesem wurden.
+
+### Changed
+
+- config.json
+  
+  - Die Inhalte wurden entsprechend an den Random Gaming Server angepasst. Außerdem wurde die Authentifizierung für Twitch ebenfalls in diese Datei kopiert, um die Abhängigkeiten zu anderen Dateien zu reduzieren.
+
+- ready.js 
+  
+  - Die erforderlichen Authentifizierungscodes werden jetzt aus einer anderen Datei gezogen (config.json, nicht mehr twitch-config.json).
+  
+  - Des Weiteren wurde das Intervall, in dem geprüft wird, ob Streamer online sind, angepasst (von 20 Sekunden auf 2 Minuten).
+
+- README.md 
+  
+  - Die Datei wurde entsprechend der Änderungen an twitch-config.json und config.json angepasst.
+
 ## [0.2.0] - 2024-05-22
 
 ### Added

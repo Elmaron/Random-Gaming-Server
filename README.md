@@ -8,29 +8,29 @@ Um es mir selbst etwas einfacher bei der Entwicklung zu machen, habe ich dem Bot
 Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne herunterladen und damit euren eigenen Serverbot entwickeln. Wollt ihr es euch einfach machen, würde ich euch empfehlen, nichts in dem Ordner "Structures" anzufassen und darauf aufbauend nur im Ordner Events Dinge abzuändern und Commands (im Ordner Commands) hinzuzufügen. Achtung: Nehmt ihr Änderungen an message.js vor, passt auf, nicht versehentlich etwas zu löschen, da ggf. sonst keine normalen Befehle mehr ausgeführt werden können.
 Übrigens befindet sich das Token nicht im Code, nur der Standort, auf den zugegriffen wird (damit es für Fremde Zwecke nicht ausgelesen und missbraucht werden kann!). Diese Datei sieht in etwa so inhaltlich aus:
 
+```json
 {
     "token": "<Discord-Token>",
     "prefix": "<Bot-Prefix>",
     "owners": [ "<User-Id>" ],
     "RandomGamingServer": {
-        "Guidelines": {
-            "messageId": "<guidelinesMessageId>",
-            "reactionId": "<emojiId>",
-            "roleId": "<roleId>"
-        },
-        "Livestream": {
-            "twitchChannels": "<Kanalname>",
-            "announcementChannel": "<announcementChannelId>"
-        }
-    }    
-
+        "Guidelines": {
+            "messageId": "<guidelinesMessageId>",
+            "reactionId": "<emojiId>",
+            "roleId": "<roleId>"
+        },
+        "Livestream": {
+            "twitchChannels": "<Kanalname>",
+            "announcementChannel": "<announcementChannelId>"
+        }
+    },
+    "TwitchAPI": {
+        "client_id": "<Client-id>",
+        "client_secret": "<Client-secret>"
+    }
 }
+```
 
-Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. Etwas ähnliches gilt auch für die zweite Konfigurationsdatei, die die Informationen für die Twitch API enthält:
-
-{
-  "client_id": "<Client-id>",
-  "client_secret": "<Client-secret>"
-}
+Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. 
 
 Übrigens müsste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufügen, sobald ich diese gefunden habe.

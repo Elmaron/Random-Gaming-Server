@@ -26,7 +26,7 @@ module.exports = class extends Event {
 				try {
 					const guild = message.guild;
 					const member = await guild.members.fetch(user.id);
-					console.log(`User ${user.tag} wird die Rolle ${member.roles.cache.get(settings.roleId)} zugewiesen.`);
+					console.log(`User ${user.tag} wird die Rolle ${guild.roles.cache.get(settings.roleId).name} zugewiesen.`);
 					await member.roles.add(settings.roleId);
 					console.log('Rolle erfolgreich hinzugefügt.');
 				} catch (error) {
