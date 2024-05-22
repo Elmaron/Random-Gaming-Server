@@ -74,7 +74,8 @@ module.exports = class Util {
                 const event = new File(this.client, name);
                 if(!(event instanceof Event)) throw new TypeError(`Event ${name} doesn't belong in events.`);
                 this.client.events.set(event.name, event);
-                event.emitter[event.type](name, (...args) => event.run(...args));
+				//console.log(`Registering event: ${name}`);
+                event.emitter[event.type](name, (...args) => {/*console.log(`Event ${name} triggered.`); */event.run(...args);});
             }
         })
     }

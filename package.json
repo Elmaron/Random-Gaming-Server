@@ -1,6 +1,6 @@
 {
   "name": "discord-bot_for_RandomGamingServer",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Bot for Discord-Server",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Elmaron/Discord-Bot_online_Mr.Manager.git"
+    "url": "git+https://github.com/Elmaron/Random-Gaming-Server.git"
   },
   "author": "Elias Maurer",
   "license": "ISC",

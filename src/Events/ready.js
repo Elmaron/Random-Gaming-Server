@@ -20,11 +20,11 @@ module.exports = class extends Event {
         console.log([
             `Logged in as ${this.client.user.tag}`,
             `Loaded ${this.client.commands.size} commands!`,
-            `Loaded ${this.client.events.size} events!`,
-			`Bot available on the following servers:`
+            `Loaded ${this.client.events.size} events!`//,
+			//`Bot available on the following servers:`
         ].join('\n'));
 		
-		this.client.guilds.cache.forEach(guild => console.log(guild.name));
+		//this.client.guilds.cache.forEach(guild => console.log(guild.name));
 
 
         const activities = [
@@ -44,74 +44,74 @@ module.exports = class extends Event {
 }
 
 // Funktion, um ein Auth-Token zu erhalten
-	async function getAuthToken() {
-	  const authResponse = await fetch('https://id.twitch.tv/oauth2/token', {
-		method: 'POST',
-		headers: {
-		  'Content-Type': 'application/x-www-form-urlencoded'
-		},
-		body: new URLSearchParams({
-		  client_id: twitchConfig.client_id,
-		  client_secret: twitchConfig.client_secret,
-		  grant_type: 'client_credentials'
-		}).toString()
-	  });
+async function getAuthToken() {
+  const authResponse = await fetch('https://id.twitch.tv/oauth2/token', {
+	method: 'POST',
+	headers: {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+	},
+	body: new URLSearchParams({
+	  client_id: twitchConfig.client_id,
+	  client_secret: twitchConfig.client_secret,
+	  grant_type: 'client_credentials'
+	}).toString()
+  });
 
-	  const authData = await authResponse.json();
-	  return authData.access_token;
-	}
+  const authData = await authResponse.json();
+  return authData.access_token;
+}
+
+async function sendLiveMessage() {
+	const livechannel = await localClient.channels.cache.get(config.RandomGamingServer.Livestream.announcementChannel);
 	
-	async function sendLiveMessage() {
-		const livechannel = await localClient.channels.cache.get('1168624110214062211');
+	const token = await getAuthToken();
 		
-		const token = await getAuthToken();
-			
-		const userResponse = await fetch(`https://api.twitch.tv/helix/users?login=${config.twitch}`, {
-			headers: {
-			  'Client-ID': twitchConfig.client_id,
-			  'Authorization': `Bearer ${token}`
-			}
-		});
-		
-		const userData = await userResponse.json();
-		const userId = userData.data[0].id;
-		
-		const streamResponse = await fetch(`https://api.twitch.tv/helix/streams?user_id=${userId}`, {
-			headers: {
-			  'Client-ID': twitchConfig.client_id,
-			  'Authorization': `Bearer ${token}`
-			}
-		});
-		
-		const streamData = await streamResponse.json();
-		
-		if (streamData.data.length > 0 && !liveMessageSent) {
-			//console.log(`${config.twitch} ist live!`);
-			liveMessageSent = true;
-			if(livechannel)
-			{
-				livechannel.send(`${config.twitch} ist gerade live!`)
-					.then(message => {livemsg = message;})
-					.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
-			} else {
-				console.error('Kanal nicht gefunden!')
-			}
-		} else if(streamData.data.length <= 0 && liveMessageSent) {
-			liveMessageSent = false;
-			if(livemsg)
-				livemsg.delete()
-					.then(() => {livemsg = null; console.log('Livestream Benachrichtigung erfolgreich geloescht.')})
-					.catch(error => console.error('Fehler beim loeschen der Livestream-Benachrichtigung'));
-		} else {
-			/*
-			console.log(`${config.twitch} ist nicht live.`);
-			if(livechannel)
-			{
-				livechannel.send("Da ist jemand nicht live.")
-					.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
-			} else {
-				console.error('Kanal nicht gefunden!')
-			}
-			*/
+	const userResponse = await fetch(`https://api.twitch.tv/helix/users?login=${config.RandomGamingServer.Livestream.twitchChannels}`, {
+		headers: {
+		  'Client-ID': twitchConfig.client_id,
+		  'Authorization': `Bearer ${token}`
 		}
+	});
+	
+	const userData = await userResponse.json();
+	const userId = userData.data[0].id;
+	
+	const streamResponse = await fetch(`https://api.twitch.tv/helix/streams?user_id=${userId}`, {
+		headers: {
+		  'Client-ID': twitchConfig.client_id,
+		  'Authorization': `Bearer ${token}`
+		}
+	});
+	
+	const streamData = await streamResponse.json();
+	
+	if (streamData.data.length > 0 && !liveMessageSent) {
+		//console.log(`${config.RandomGamingServer.Livestream.twitchChannels} ist live!`);
+		liveMessageSent = true;
+		if(livechannel)
+		{
+			livechannel.send(`${config.RandomGamingServer.Livestream.twitchChannels} ist gerade live!`)
+				.then(message => {livemsg = message;})
+				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
+		} else {
+			console.error('Kanal nicht gefunden!')
+		}
+	} else if(streamData.data.length <= 0 && liveMessageSent) {
+		liveMessageSent = false;
+		if(livemsg)
+			livemsg.delete()
+				.then(() => {livemsg = null; console.log('Livestream Benachrichtigung erfolgreich geloescht.')})
+				.catch(error => console.error('Fehler beim loeschen der Livestream-Benachrichtigung'));
+	} else {
+		/*
+		console.log(`${config.RandomGamingServer.Livestream.twitchChannels} ist nicht live.`);
+		if(livechannel)
+		{
+			livechannel.send("Da ist jemand nicht live.")
+				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
+		} else {
+			console.error('Kanal nicht gefunden!')
+		}
+		*/
 	}
+}

@@ -5,6 +5,24 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2024-05-22
+
+### Added
+
+- Datei: src/Events/raw.js
+  
+  - Event: Raw
+    
+    - dient zur Verarbeitung aller Veränderungen von Discord
+    
+    - kann bei Bedarf Rollen durch die Reaktion auf eine bestimmte Nachricht hinzufügen (bspw. wenn Guidelines mithilfe einer Reaktion bestätigt werden.)
+
+### Changed
+
+- ready.js >> Der Code wurde etwas angepasst, um sich die Informationen aus der überarbeiteten "config.json"-Datei zu holen.
+- config.json >> Der Inhalt wurde etwas überarbeitet und dadurch übersichtlicher gestaltet.
+- README.md >> Der Inhalt der config.json Datei wurde neu beschrieben.
+
 ## [0.1.1] - 2024-05-21
 
 ### Added

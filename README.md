@@ -12,9 +12,19 @@ Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne her
     "token": "<Discord-Token>",
     "prefix": "<Bot-Prefix>",
     "owners": [ "<User-Id>" ],
-    "twitch": "<Kanalname>"
+    "RandomGamingServer": {
+        "Guidelines": {
+            "messageId": "<guidelinesMessageId>",
+            "reactionId": "<emojiId>",
+            "roleId": "<roleId>"
+        },
+        "Livestream": {
+            "twitchChannels": "<Kanalname>",
+            "announcementChannel": "<announcementChannelId>"
+        }
+    }    
 
- }
+}
 
 Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. Etwas ähnliches gilt auch für die zweite Konfigurationsdatei, die die Informationen für die Twitch API enthält:
 
@@ -22,7 +32,5 @@ Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf
   "client_id": "<Client-id>",
   "client_secret": "<Client-secret>"
 }
-
-
 
 Übrigens müsste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufügen, sobald ich diese gefunden habe.

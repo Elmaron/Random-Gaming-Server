@@ -1,9 +1,15 @@
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, Intents } = require('discord.js');
 const Util = require('./Util.js');
 
 module.exports = class MenuDocsClient extends Client {
     constructor(options = {}) {
         super({
+			intents: [
+				Intents.FLAGS.GUILDS,
+				Intents.FLAGS.GUILD_MEMBERS,
+				Intents.FLAGS.GUILD_MESSAGES,
+				Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+			],
             disableMentions: 'everyone'
         });
         this.validate(options);
