@@ -4,7 +4,6 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            aliases: ['byebye'],
             description: 'The Bot can reload single commands this command.',
             category: 'Administrator',
             usage: '[name]'

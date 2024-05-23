@@ -5,6 +5,16 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2024-05-23
+
+### Added
+
+- Datei: src/Commands/Admin/restart.js
+  
+  - dient dazu, den Bot herunterzufahren und alles neu zu starten (Commands, Events)
+  
+  - Befehl wird im gleichen Terminalfenster ausgeführt (wird das Terminal geschlossen, wird auch der neugestartete Bot geschlossen)
+
 ## [0.2.1] - 2024-05-22
 
 ### Fixed
