@@ -11,7 +11,8 @@ module.exports = class extends Event{
         }
         const choices = ['Es ist schön, dich hier zu haben :smile:', 'Danke, das du dem Server beigetreten bist :heart_hands:', 'Es ist klasse, dich hier zu sehen :upside_down:'];
         const response = choices[Math.floor(Math.random()*choices.length)];
-        const linkToGuidelines = `https://discord.com/channels/{${config.RandomGamingServer.guildId}}/${config.RandomGamingServer.Guidelines.channelId}/${config.RandomGamingServer.Guidelines.messageId}`;
+        const linkToGuidelines = `https://discord.com/channels/${config.RandomGamingServer.guildId}/${config.RandomGamingServer.Guidelines.channelId}/${config.RandomGamingServer.Guidelines.messageId}`;
+        //Müsste in etwa so gehen: https://discord.com/channels/583690456953782272/1239171449999331359/message-id
 
         const embed = new MessageEmbed()
             .setColor('BLUE')

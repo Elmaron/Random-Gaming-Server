@@ -5,6 +5,20 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.2] - 2024-05-25
+
+### Fixed
+
+- src/Events/guildMemberAdd.js
+  
+  - Die Nachricht, die einem der Bot anzeigt, enthielt einen Fehler im Link, sodass man nicht auf die Guidelines verwiesen wurde. Der Link funktioniert jetzt, wie erwartet.
+
+- src/Events/message/messageDelete.js & src/Events/message/messageUpdate.js
+  
+  - Wenn eine Nachricht von einem User, der bereits den Server verlassen hat, gelöscht oder geändert wurde, ist der Bot durch die Fehlermeldung abgestürzt. Die Fehlermeldung selbst (der Autor der Nachricht sei nicht verfügbar) ist nicht soo schlimm, daher wurde nur das abstürzen des Bots vorerst umgangen.
+
+
+
 ## [0.3.1] - 2024-05-25
 
 ### Fixed
@@ -45,6 +59,8 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 
 - Der Server wurde etwas überarbeitet. (siehe SERVER-CHANGELOG.md)
 
+## 
+
 ## [0.3.0] - 2024-05-23
 
 ### Added
@@ -79,6 +95,8 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
   
   - Die Datei wurde entsprechend der Änderungen an twitch-config.json und config.json angepasst.
 
+
+
 ## [0.2.0] - 2024-05-22
 
 ### Added
@@ -97,6 +115,8 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 - config.json >> Der Inhalt wurde etwas überarbeitet und dadurch übersichtlicher gestaltet.
 - README.md >> Der Inhalt der config.json Datei wurde neu beschrieben.
 
+
+
 ## [0.1.1] - 2024-05-21
 
 ### Added
@@ -110,6 +130,8 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 ### Changed
 
 - README.md wurde anhand der hinzugefügten Inhalte etwas angepasst.
+
+
 
 ## [0.1.0] - 2024-05-19
 
