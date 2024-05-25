@@ -14,23 +14,32 @@ Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne her
     "prefix": "<Bot-Prefix>",
     "owners": [ "<User-Id>" ],
     "RandomGamingServer": {
-        "Guidelines": {
-            "messageId": "<guidelinesMessageId>",
-            "reactionId": "<emojiId>",
-            "roleId": "<roleId>"
-        },
-        "Livestream": {
-            "twitchChannels": "<Kanalname>",
-            "announcementChannel": "<announcementChannelId>"
-        }
+        "guildId": "<guildId>",
+        "welcomeChannel": "<welcomeChannelId>",
+        "announcementChannel": "<announcementChannelId>",
+        "advancementsChannel": "<advancementsChannelId>",
+        "RoleUpgrades": {
+            "roles": ["<roleId1>", "<roleId2>", ..., "roleIdn"],
+            "passedTime": [ "<timeBetweenRole1and2>", "<timeBetweenRole2and3>", "...", "<timeBetweenRoleN-1andN>" ],
+        },
+        "Guidelines": {
+            "channelId": "<guidelinesChannelId>",
+            "messageId": "<guidelinesMessageId>",
+            "reactionId": "<emojiId>",
+            "roleId": "<roleId>"
+        },
+        "Livestream": {
+            "twitchChannels": "<Kanalname>",
+            "announcementChannel": "<announcementChannelId>"
+        }
     },
     "TwitchAPI": {
-        "client_id": "<Client-id>",
-        "client_secret": "<Client-secret>"
+        "client_id": "<Client-id>",
+        "client_secret": "<Client-secret>"
     }
 }
 ```
 
-Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. 
+Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. Falls ihr Fragen zu den jeweiligen Sektionen habt, schreibt mich gerne direkt an. 
 
 Übrigens müsste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufügen, sobald ich diese gefunden habe.
