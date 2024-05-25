@@ -26,6 +26,7 @@ module.exports = class extends Event {
 				try {
 					const guild = message.guild;
 					const member = await guild.members.fetch(user.id);
+					if(member.user.bot) return console.log(`Bot ${user.tag} hat auf mit dem Emoji auf eine Nachricht reagiert, bei dem eine Rolle zugewiesen werden wuerde. (Bots bekommen sollen keine Rollen bei Reaktionen zugewiesen bekommen)`);
 					console.log(`User ${user.tag} wird die Rolle ${guild.roles.cache.get(settings.roleId).name} zugewiesen.`);
 					await member.roles.add(settings.roleId);
 					console.log('Rolle erfolgreich hinzugefügt.');

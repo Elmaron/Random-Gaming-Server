@@ -7,7 +7,7 @@ module.exports = class extends Command{
     constructor(...args) {
         super(...args, {
             description: 'Shuts down the Bot and restarts it.',
-            category: 'Adiministrator'
+            category: 'Administrator'
         })
     }
 

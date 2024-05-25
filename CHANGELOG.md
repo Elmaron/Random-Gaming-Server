@@ -5,6 +5,46 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2024-05-25
+
+### Fixed
+
+- src/Commands/restart.js
+  
+  - Der Bot ist im Help-Befehl einer falschen Kategorie zugeordnet worden (Adiministrator)
+
+- src/Events/raw.js
+  
+  - Würde ein Bot auf die Nachricht mit dem richtigen Emoji reagieren, würde er ebenfalls eine Rolle zugewiesen bekommen. Allerdings sollen Bots nicht auf diese Weise Rollen für den Server bekommen können, deshalb wurde dies entfernt.
+
+### Added
+
+- Datei: "other content/Discord-Bot Profilbild.png" (other content wurde in diesem Zug ebenfalls erstellt)
+  
+  - Der Bot hat auf Discord jetzt ein Profilbild!
+
+- In Datei: src/Events/ready.js
+  
+  - Der Bot liest nun von alleine die Guideline-Nachricht aus und schaut, ob dort bereits die erwünschte Reaktion vorhanden ist. Sollte diese fehlen, wird sie vom Bot hinzugefügt.
+  
+  - Der Bot kann nun Rollen upgraden! Ist jemand, der den Richtlinien zugestimmt hat und damit Zugriff auf den Server hat, eine gewisse Zeit auf dem Server mit dieser Rolle, wird seine Rolle automatisch geupgraded!
+
+### Changed
+
+- src/Event/ready.js
+  
+  - In der Livestream Benachrichtigung steht jetzt ein Link, mit dem man direkt dem Livestream beitreten kann.
+
+- src/Event/guildMemberAdd.js
+  
+  - Die Willkommensnachricht für neue Mitglieder auf dem Server wurde angepasst.
+    
+    - Bots werden nun in Kurzform begrüßt.
+    
+    - Alle anderen werden nun freundlich begrüßt und dazu aufgefordert, die Server-Richtlinien zu akzeptieren.
+
+- Der Server wurde etwas überarbeitet. (siehe SERVER-CHANGELOG.md)
+
 ## [0.3.0] - 2024-05-23
 
 ### Added

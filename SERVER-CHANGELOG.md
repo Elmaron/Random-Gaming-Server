@@ -1,58 +1,76 @@
 # Changelog
 
-Diese Datei enthält alle (wichtigen) Änderungen zum Discord-Server. Für Änderungen zum Discord-Bot schau bitte in die Datei "CHANGELOG.md".
+Diese Datei enthÃ¤lt alle (wichtigen) Ã„nderungen zum Discord-Server. FÃ¼r Ã„nderungen zum Discord-Bot schau bitte in die Datei "CHANGELOG.md".
 
-Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
+Das Format basiert auf [FÃ¼hre ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
+
+## [1.1.1] - 2024-05-25
+
+### Changed
+
+- Ein Rollenname wurde geÃ¤ndert: "@Fisher" >> "@Random Follower"
+- Die Rollensortierung wurde etwas geÃ¤ndert.
+  - "@Mit Glied" wird nun nicht mehr in der Mitgliederliste sortiert.
+  - "@Randomizer" wird nun rechts in der Mitgliederliste sortiert angezeigt.
+  - "@Random Follower" wird nun rechts in der Mitgliederliste sortiert angezeigt.
+- Die Rollenberechtigungen wurden verÃ¤ndert.
+  - "@Random Follower" kann nun "HIDDEN CONTENT" sehen.
+  - "@Randomizer" kann nun mit Eshis space interagieren.
+  - "@Randomizer" hat nun vollen Zugriff in der Kategorie "Livestream"
+
+### Removed
+
+- Die Rolle "@Follower" wurde entfernt.
 
 ## [1.1.0] - 2024-05-19
 
 ### Added
 
 - Kategorie: Server-Info (renamed)
-	- guidelines
+  - guidelines
 - Kategorie: Livestream (new)
-	- announcemenents
-	- random-messages
-	- random-creativity
-	- random-ideas
-	- the-law-lied
+  - announcemenents
+  - random-messages
+  - random-creativity
+  - random-ideas
+  - the-law-lied
 - Kategorie: Eshis Space (new)
-	- requests
-	- announcements
-	- live
+  - requests
+  - announcements
+  - live
 - Kategorie: Hidden Content (new)
-	- infos-news-announcements
-	- making-ofs
-	- experiments
+  - infos-news-announcements
+  - making-ofs
+  - experiments
 - Rollen
-	- Content Creator 
-	- Stream Moderator
-	- Fisher
-	- Follower (Verknüpfung zu Twitch oder YouTube erforderlich)
-	- Randomizer
+  - Content Creator 
+  - Stream Moderator
+  - Fisher
+  - Follower (VerknÃ¼pfung zu Twitch oder YouTube erforderlich)
+  - Randomizer
 
 ### Changed
 
 - Sprachkanal "just streaming" von Random Online Gaming (Kategorie) nach Livestream (Kategorie) verschoben
-- Berechtigungen für alle alten Rollen wurde angepasst
+- Berechtigungen fÃ¼r alle alten Rollen wurde angepasst
 - Kategorie "Welcome" wurde zu "Server-info" umbenannt
-- Die Farbe von der Rolle "Mit Glied" wurde geändert (von grau zu dunkelgrün)
+- Die Farbe von der Rolle "Mit Glied" wurde geÃ¤ndert (von grau zu dunkelgrÃ¼n)
 - Kategorie "Random Online Gaming" wurde zu "Random Gaming" umbenannt
 
 ### Removed
 
 - Alle Rollen bis auf die folgenden wurden entfernt:
-	- Server Admin
-	- Bot
-	- You are Special!
-	- Streamer
-	- Streamgast
-	- Mit Glied
-- Alle Bots wurden (teilweise vorrübergehend) entfernt
-	- RGS Bot (Mr. Manager)
-	- Lawliet
-	- OwO
+  - Server Admin
+  - Bot
+  - You are Special!
+  - Streamer
+  - Streamgast
+  - Mit Glied
+- Alle Bots wurden (teilweise vorrÃ¼bergehend) entfernt
+  - RGS Bot (Mr. Manager)
+  - Lawliet
+  - OwO
 
 ## Earlier
 
@@ -60,7 +78,7 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 
 - Server wurde erstellt
 - Kategorien: Communication, Random Online Gaming und Welcome
-- Kanäle für die Kategorien Communication, Random Online Gaming and Welcome
-- Ein paar versteckte Kanäle für Spezial-Inhalte und Server-Tests
+- KanÃ¤le fÃ¼r die Kategorien Communication, Random Online Gaming and Welcome
+- Ein paar versteckte KanÃ¤le fÃ¼r Spezial-Inhalte und Server-Tests
 - Viele verschiedene Rollen
-- Berechtigungen für die verschiedenen Rollen
+- Berechtigungen fÃ¼r die verschiedenen Rollen
