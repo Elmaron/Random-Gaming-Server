@@ -61,6 +61,7 @@ module.exports = class Util {
                     }
                 }
             }
+            console.log('util.js called >> commands loaded');
         })
     }
 
@@ -77,6 +78,7 @@ module.exports = class Util {
 				//console.log(`Registering event: ${name}`);
                 event.emitter[event.type](name, (...args) => {/*console.log(`Event ${name} triggered.`); */event.run(...args);});
             }
+            console.log('util.js called >> events loaded');
         })
     }
 
