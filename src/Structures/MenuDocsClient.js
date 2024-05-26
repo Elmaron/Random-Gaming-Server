@@ -3,6 +3,7 @@ const Util = require('./Util.js');
 
 module.exports = class MenuDocsClient extends Client {
     constructor(options = {}) {
+        console.log('MenuDocsClient.js called >> running constructor');
         super({
 			intents: [
 				Intents.FLAGS.GUILDS,
@@ -27,6 +28,7 @@ module.exports = class MenuDocsClient extends Client {
 
 
     validate(options) {
+        console.log('MenuDocsClient.js called >> validating options');
         if(typeof options !== 'object') throw new TypeError('Options should be type of Object.');
 
         if(!options.DiscordAPI.token) throw new Error('You must pass the token for the client.');
@@ -38,9 +40,11 @@ module.exports = class MenuDocsClient extends Client {
     }
 
     async start(token = this.token) {
+        console.log('MenuDocsClient.js called >> starting');
         this.utils.loadCommands();
         this.utils.loadEvents();
         super.login(token);
+        console.log('MenuDocsClient.js called >> looged in\n_____________________________________________\n\n');
     }
 
 };
