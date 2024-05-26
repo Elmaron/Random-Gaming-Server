@@ -49,6 +49,7 @@ module.exports = class Util {
         return glob(`${this.directory}commands/**/*.js`).then(commands => {
             console.log('util.js called >> loading commands');
             for(const commandFile of commands) {
+                console.log(`-> Found: ${commandFile}`);
                 delete require.cache[commandFile];
                 const { name } = path.parse(commandFile);
                 const File = require(commandFile);
@@ -71,6 +72,7 @@ module.exports = class Util {
         return glob(`${this.directory}events/**/*.js`).then(events => {
             console.log('util.js called >> loading events');
             for(const eventFile of events) {
+                console.log(`-> Found: ${eventFile}`);
                 delete require.cache[eventFile];
                 const { name } = path.parse(eventFile);
                 const File = require(eventFile);
