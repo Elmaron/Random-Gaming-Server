@@ -1,6 +1,6 @@
 {
   "name": "discord-bot_for_RandomGamingServer",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "Bot for Discord-Server",
   "main": "index.js",
   "scripts": {

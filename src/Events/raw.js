@@ -1,5 +1,5 @@
 const Event = require('../Structures/Event.js');
-const config = require("../../../../SECRET DISCORD ADDITIONS/config.json");
+const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 
 module.exports = class extends Event {
 	
@@ -14,7 +14,7 @@ module.exports = class extends Event {
 		
 		//console.log('There has been a reaction!');
 		
-		this.addRoleOnReaction(message, user, data, config.RandomGamingServer.Guidelines);
+		this.addRoleOnReaction(message, user, data, serverConfig.Guidelines);
 		
 	}
 	

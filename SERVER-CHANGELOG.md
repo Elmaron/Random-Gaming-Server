@@ -5,6 +5,31 @@ Diese Datei enthält alle (wichtigen) Änderungen zum Discord-Server. Für Ände
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2024-05-26
+
+### Added
+
+- Es wurden Beschreibungen für alle Textkanäle in der Kategorie Livestream hinzugefügt.
+- Es wurden Beschreibungen für alle Textkanäle in der Kategorie HIDDEN CONTENT hinzugefügt.
+- Es wurde eine neue Rolle für Eshis Space (und für Eshi himself) angelegt, um ihm Kontrolle über seine Kategorie zu geben.
+- Die Guidelines wurden nun hinzugefügt.
+
+### Changed
+
+- Es haben sich ein paar Schriftarten in der Livestream-Kategorie verändert.
+- ES haben sich ein paar Schriftarten in der HIDDEN CONTENT-Kategorie verändert.
+- Ein paar der Kanalnamen haben sich geändert: (alt - neu)
+  - announcements >> ANNOUNCEMENT
+  - random-messages >> RAND-MSG
+  - random-creativity >> RAND-CREATE
+  - random-ideas >> RAND-IDEA
+  - just streaming >> LIVE-TALKS
+  - infos-news-announcements >> infos-news-announs
+
+### Removed
+
+- Der Kanal "the-law-lied" ist entfernt worden.
+
 ## [1.1.1] - 2024-05-25
 
 ### Changed

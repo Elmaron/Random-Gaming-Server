@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
 const Event = require('../Structures/Event');
 const { MessageEmbed } = require('discord.js');
-const config = require("../../../../SECRET DISCORD ADDITIONS/config.json");
+const config = require("../../../config.json");
+const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 //const twitchConfig = require("../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
 
 let localClient;
@@ -38,14 +39,14 @@ module.exports = class extends Event {
 		
 		(async () => {
 			try{
-				const channel = await(this.client.channels.fetch(config.RandomGamingServer.Guidelines.channelId));
-				const message = await(channel.messages.fetch(config.RandomGamingServer.Guidelines.messageId));
+				const channel = await(this.client.channels.fetch(serverConfig.Guidelines.channelId));
+				const message = await(channel.messages.fetch(serverConfig.Guidelines.messageId));
 
 				const reactions = message.reactions.cache;
-				const reaction = reactions.get(config.RandomGamingServer.Guidelines.reactionId);
+				const reaction = reactions.get(serverConfig.Guidelines.reactionId);
 
 				if(!reaction) {
-					await message.react(config.RandomGamingServer.Guidelines.reactionId);
+					await message.react(serverConfig.Guidelines.reactionId);
 					console.log('Reaktion für die Guidelines hinzugefügt');
 				} else {
 					//console.log('Die Reaktion für die Nachricht ist bereits vorhanden!');
@@ -59,8 +60,10 @@ module.exports = class extends Event {
         let i = 0;
         setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000);
 		
+		sendLiveMessage();
 		setInterval(sendLiveMessage, 2 * 60 * 1000);
 
+		upgradeRoles();
 		setInterval(upgradeRoles, 1000 * 60 * 60 * 6); //die letzte Zahl sind die Stunden
         // this.client.user.setActivity('discord.js', { type: 'WATCHING' });
     }
@@ -85,11 +88,11 @@ async function getAuthToken() {
 }
 
 async function sendLiveMessage() {
-	const livechannel = await localClient.channels.cache.get(config.RandomGamingServer.Livestream.announcementChannel);
+	const livechannel = await localClient.channels.cache.get(serverConfig.Livestream.announcementChannel);
 	
 	const token = await getAuthToken();
 		
-	const userResponse = await fetch(`https://api.twitch.tv/helix/users?login=${config.RandomGamingServer.Livestream.twitchChannels}`, {
+	const userResponse = await fetch(`https://api.twitch.tv/helix/users?login=${serverConfig.Livestream.twitchChannels}`, {
 		headers: {
 		  'Client-ID': config.TwitchAPI.client_id,
 		  'Authorization': `Bearer ${token}`
@@ -109,11 +112,11 @@ async function sendLiveMessage() {
 	const streamData = await streamResponse.json();
 	
 	if (streamData.data.length > 0 && !liveMessageSent) {
-		//console.log(`${config.RandomGamingServer.Livestream.twitchChannels} ist live!`);
+		//console.log(`${serverConfig.Livestream.twitchChannels} ist live!`);
 		liveMessageSent = true;
 		if(livechannel)
 		{
-			livechannel.send(`[${config.RandomGamingServer.Livestream.twitchChannels}](https://www.twitch.tv/${config.RandomGamingServer.Livestream.twitchChannels}) ist gerade live! Schaut gerne vorbei ^^`)
+			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! Schaut gerne vorbei ^^`)
 				.then(message => {livemsg = message;})
 				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
 		} else {
@@ -127,7 +130,7 @@ async function sendLiveMessage() {
 				.catch(error => console.error('Fehler beim loeschen der Livestream-Benachrichtigung'));
 	} else {
 		/*
-		console.log(`${config.RandomGamingServer.Livestream.twitchChannels} ist nicht live.`);
+		console.log(`${serverConfig.Livestream.twitchChannels} ist nicht live.`);
 		if(livechannel)
 		{
 			livechannel.send("Da ist jemand nicht live.")
@@ -140,15 +143,15 @@ async function sendLiveMessage() {
 }
 
 async function upgradeRoles() {
-	let roles = config.RandomGamingServer.RoleUpgrades.roles; //Die erste Rolle muss eine Rolle sein, von der aus geupgraded wird
+	let roles = serverConfig.RoleUpgrades.roles; //Die erste Rolle muss eine Rolle sein, von der aus geupgraded wird
 	if(roles.length <= 1) return console.log("Es sind nicht genug Rollen zum upgraden vordefiniert!");
-	let passedTime =  config.RandomGamingServer.RoleUpgrades.passedTime; //ES muss hier einen Eintrag weniger geben, als bei roles
+	let passedTime =  serverConfig.RoleUpgrades.passedTime; //ES muss hier einen Eintrag weniger geben, als bei roles
 	if(!(roles.length-passedTime.length <= 1)) return console.log("Es gibt zu wenige Angaben für die Zeit, die fuer die einzelnen Rolle vergangen sein muss.");
 
-	const guild = await localClient.guilds.fetch(config.RandomGamingServer.guildId);
+	const guild = await localClient.guilds.fetch(serverConfig.guildId);
 	await guild.members.fetch();
 
-	const advancementsChannel = await localClient.channels.cache.get(config.RandomGamingServer.advancementsChannel);
+	const advancementsChannel = await localClient.channels.cache.get(serverConfig.advancementsChannel);
 
 	const auditLogs = await guild.fetchAuditLogs({
         type: 'MEMBER_ROLE_UPDATE',

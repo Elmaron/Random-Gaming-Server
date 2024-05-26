@@ -5,6 +5,35 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2024-05-26
+
+### Added
+
+- Datei: "server-config/RANDOM GAMING SERVER.json"
+  - Die Konfigurationen des Servers sind ab sofort auch auf Github zu sehen.
+- Mit diesem Update geht ein Server online, wodurch der Bot (außer bei Wartungen) 24/7 online ist. Ab sofort steht der Bot (und damit auch der Server) für Follower auf Twitch usw. zur Verfügung.
+
+
+### Changed
+
+- Datei: "config.json" (außerhalb des Githubs, siehe README.md)
+  - Die Datei befindet sich nun an einem anderen Speicherort, um die Ordnerstruktur zu verbessern.
+  - Die Datei enthält jetzt nur noch die Daten zum Anmelden in den jeweiligen APIs, für das Prefix und wer die Bot Autoren sind.
+- src/
+  - index.js
+    - Ab sofort wird auf die neue "config.json" zugegriffen. (Discord API)
+  - Structures/MenuDocsClient.js
+    - Ab sofort wird auf die neue "config.json" zugegriffen. (von index.js)
+  - src/Events
+    - ready.js
+      - Ab sofort wird auf die neue "config.json" zugegriffen. (Twitch API)
+      - Die Daten für den Server werden jetzt aus "server-config/RANDOM GAMING SERVER.json" verarbeitet.
+    - raw.js
+      - Die Daten für den Server werden jetzt aus "server-config/RANDOM GAMING SERVER.json" verarbeitet.
+    - guildMemberAdd.js
+      - Die Daten für den Server werden jetzt aus "server-config/RANDOM GAMING SERVER.json" verarbeitet.
+
+
 ## [0.3.2] - 2024-05-25
 
 ### Fixed
