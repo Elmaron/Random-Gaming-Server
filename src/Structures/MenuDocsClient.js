@@ -44,7 +44,7 @@ module.exports = class MenuDocsClient extends Client {
         this.utils.loadCommands();
         this.utils.loadEvents();
         super.login(token);
-        console.log('MenuDocsClient.js called >> looged in\n_____________________________________________\n\n');
+        console.log('MenuDocsClient.js called >> looged in');
     }
 
 };

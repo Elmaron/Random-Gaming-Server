@@ -20,6 +20,7 @@ module.exports = class extends Event {
 		
 		
         console.log([
+			`_______________________________________________\n\n`,
             `Logged in as ${this.client.user.tag}`,
             `Loaded ${this.client.commands.size} commands!`,
             `Loaded ${this.client.events.size} events!`//,

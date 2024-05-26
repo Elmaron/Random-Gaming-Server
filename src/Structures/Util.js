@@ -47,6 +47,7 @@ module.exports = class Util {
 
     async loadCommands() {
         return glob(`${this.directory}commands/**/*.js`).then(commands => {
+            console.log('util.js called >> loading commands');
             for(const commandFile of commands) {
                 delete require.cache[commandFile];
                 const { name } = path.parse(commandFile);
@@ -60,6 +61,7 @@ module.exports = class Util {
                         this.client.aliases.set(alias, command.name);
                     }
                 }
+                console.log(`-> Loaded: ${command.name}`);
             }
             console.log('util.js called >> commands loaded');
         })
@@ -67,6 +69,7 @@ module.exports = class Util {
 
     async loadEvents() {
         return glob(`${this.directory}events/**/*.js`).then(events => {
+            console.log('util.js called >> loading events');
             for(const eventFile of events) {
                 delete require.cache[eventFile];
                 const { name } = path.parse(eventFile);
@@ -77,6 +80,7 @@ module.exports = class Util {
                 this.client.events.set(event.name, event);
 				//console.log(`Registering event: ${name}`);
                 event.emitter[event.type](name, (...args) => {/*console.log(`Event ${name} triggered.`); */event.run(...args);});
+                console.log(`-> Loaded: ${event.name}`);
             }
             console.log('util.js called >> events loaded');
         })
