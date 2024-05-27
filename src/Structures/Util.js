@@ -46,7 +46,7 @@ module.exports = class Util {
     }
 
     async loadCommands() {
-        return glob(`${this.directory}commands/**/*.js`).then(commands => {
+        return glob(`${this.directory}Commands/**/*.js`).then(commands => {
             console.log('util.js called >> loading commands');
             console.log(`-- Loading commands from ${this.directory}Commands/**/*.js --`);
             for(const commandFile of commands) {
@@ -70,7 +70,7 @@ module.exports = class Util {
     }
 
     async loadEvents() {
-        return glob(`${this.directory}events/**/*.js`).then(events => {
+        return glob(`${this.directory}Events/**/*.js`).then(events => {
             console.log('util.js called >> loading events');
             console.log(`-- Loading events from ${this.directory}Events/**/*.js --`);
             for(const eventFile of events) {
