@@ -5,6 +5,22 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2024-05-27
+
+### Fixed
+
+- src/Structures/MenuDocsClient.js
+  
+  - Die Bot-Besitzer wurden nicht richtig übernommen. Dieser Fehler ist jetzt behoben.
+
+- src/Structures/Util.js
+  
+  - Auf Windows Systemen mag es egal sein, allerdings ist die Ordnerbezeichnung im Bezug auf die groß und Kleinschreibung für das auslesen des richtigen Ordners auf anderen Betriebssystemen sehr wichtig. Diese wurde nun korrigiert.
+
+### Added
+
+- Einige Server Logs werden nun beim Serverstart angezeigt und geben zusätzliche Informationen.
+
 ## [1.0.0] - 2024-05-26
 
 ### Added
@@ -12,7 +28,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 - Datei: "server-config/RANDOM GAMING SERVER.json"
   - Die Konfigurationen des Servers sind ab sofort auch auf Github zu sehen.
 - Mit diesem Update geht ein Server online, wodurch der Bot (außer bei Wartungen) 24/7 online ist. Ab sofort steht der Bot (und damit auch der Server) für Follower auf Twitch usw. zur Verfügung.
-
 
 ### Changed
 
@@ -33,7 +48,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
     - guildMemberAdd.js
       - Die Daten für den Server werden jetzt aus "server-config/RANDOM GAMING SERVER.json" verarbeitet.
 
-
 ## [0.3.2] - 2024-05-25
 
 ### Fixed
@@ -45,8 +59,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 - src/Events/message/messageDelete.js & src/Events/message/messageUpdate.js
   
   - Wenn eine Nachricht von einem User, der bereits den Server verlassen hat, gelöscht oder geändert wurde, ist der Bot durch die Fehlermeldung abgestürzt. Die Fehlermeldung selbst (der Autor der Nachricht sei nicht verfügbar) ist nicht soo schlimm, daher wurde nur das abstürzen des Bots vorerst umgangen.
-
-
 
 ## [0.3.1] - 2024-05-25
 
@@ -124,8 +136,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
   
   - Die Datei wurde entsprechend der Änderungen an twitch-config.json und config.json angepasst.
 
-
-
 ## [0.2.0] - 2024-05-22
 
 ### Added
@@ -144,8 +154,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 - config.json >> Der Inhalt wurde etwas überarbeitet und dadurch übersichtlicher gestaltet.
 - README.md >> Der Inhalt der config.json Datei wurde neu beschrieben.
 
-
-
 ## [0.1.1] - 2024-05-21
 
 ### Added
@@ -159,8 +167,6 @@ und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0
 ### Changed
 
 - README.md wurde anhand der hinzugefügten Inhalte etwas angepasst.
-
-
 
 ## [0.1.0] - 2024-05-19
 

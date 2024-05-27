@@ -23,7 +23,7 @@ module.exports = class MenuDocsClient extends Client {
         
         this.utils = new Util(this);
 
-        this.owners = options.owners;
+        this.owners = options.DiscordAPI.owners;
     }
 
 
