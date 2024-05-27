@@ -10,28 +10,10 @@ Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne her
 
 ```json
 {
-    "token": "<Discord-Token>",
-    "prefix": "<Bot-Prefix>",
-    "owners": [ "<User-Id>" ],
-    "RandomGamingServer": {
-        "guildId": "<guildId>",
-        "welcomeChannel": "<welcomeChannelId>",
-        "announcementChannel": "<announcementChannelId>",
-        "advancementsChannel": "<advancementsChannelId>",
-        "RoleUpgrades": {
-            "roles": ["<roleId1>", "<roleId2>", ..., "roleIdn"],
-            "passedTime": [ "<timeBetweenRole1and2>", "<timeBetweenRole2and3>", "...", "<timeBetweenRoleN-1andN>" ],
-        },
-        "Guidelines": {
-            "channelId": "<guidelinesChannelId>",
-            "messageId": "<guidelinesMessageId>",
-            "reactionId": "<emojiId>",
-            "roleId": "<roleId>"
-        },
-        "Livestream": {
-            "twitchChannels": "<Kanalname>",
-            "announcementChannel": "<announcementChannelId>"
-        }
+    "DiscordAPI": {
+        "token": "<Discord-Token>",
+        "prefix": "<Bot-Prefix>",
+        "owners": [ "<User-Id>" ],
     },
     "TwitchAPI": {
         "client_id": "<Client-id>",
