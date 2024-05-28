@@ -22,6 +22,6 @@ Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne her
 }
 ```
 
-Ihr müsst nur <Inhalt> durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. Falls ihr Fragen zu den jeweiligen Sektionen habt, schreibt mich gerne direkt an. 
+Ihr müsst nur `<Inhalt>` durch den jeweiligen Inhalt ersetzen und den Verweis auf die Datei korrigieren, wenn ihr auf der Basis meines Codes euren eigenen Discord-Bot schreiben möchte. Falls ihr Fragen zu den jeweiligen Sektionen habt, schreibt mich gerne direkt an. 
 
 Übrigens müsste ich an dieser Stelle auch Credits an ein YouTube-Video geben, mit dessen Hilfe ich den Quatsch hier damals entwickelt habe und auf dem das Meiste meines Codes basiert. Allerdings muss ich diese Tutorial-Reihe erst einmal wiederfinden und werde den Namen und die Playlist hier hinzufügen, sobald ich diese gefunden habe.
