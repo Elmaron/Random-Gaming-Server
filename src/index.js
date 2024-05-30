@@ -1,3 +1,4 @@
+//Diese Klasse wird aufgerufen, wenn das Programm gestartet werden soll!
 const MenuDocsClient = require('./Structures/MenuDocsClient');
 const config = require("../../config.json");
 const package = require("../package.json");

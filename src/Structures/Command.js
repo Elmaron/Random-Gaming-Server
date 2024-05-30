@@ -1,3 +1,4 @@
+//Diese Klasse kann als Vorlage importiert werden um Chatbefehle zu erstellen.
 module.exports = class Command {
     //Hier wird definiert, woraus ein Befehl des Bots besteht und wie er sich zusammensetzt. Außerdem werden hier (bei nicht vorhandensein bestimmter Parameter) auch die Standardparameter definiert.
     constructor(client, name, options = {}) {

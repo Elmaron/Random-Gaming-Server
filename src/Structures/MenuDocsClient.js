@@ -1,6 +1,7 @@
 const { Client, Collection, Intents } = require('discord.js');
 const Util = require('./Util.js');
 
+//Diese Klasse weißt dem Discord-Bot Standardparameter zu und kann ihn starten.
 module.exports = class MenuDocsClient extends Client {
     //Initialisere und weise dem Bot seine Daten zu.
     constructor(options = {}) {
