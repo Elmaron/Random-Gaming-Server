@@ -117,9 +117,10 @@ async function sendLiveMessage() {
 	if (streamData.data.length > 0 && !liveMessageSent) {
 		//console.log(`${serverConfig.Livestream.twitchChannels} ist live!`);
 		liveMessageSent = true;
+		console.log("StreamData: ", streamData);
 		if(livechannel)
 		{
-			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! Schaut gerne vorbei ^^`)
+			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! @everyone, schaut gerne vorbei! ^^`)
 				.then(message => {livemsg = message;})
 				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
 		} else {
@@ -127,6 +128,17 @@ async function sendLiveMessage() {
 		}
 	} else if(streamData.data.length <= 0 && liveMessageSent) {
 		liveMessageSent = false;
+		const streamSchedule = await fetch(`https://api.twitch.tv/helix/schedule?broadcaster_id=${userId}`, {
+				headers: {
+					'Client-ID': config.TwitchAPI.client_id,
+					'Authorization': `Bearer ${token}`
+				}
+			}).then(response => response.json());
+		try
+		{
+			console.log('Schedule: ', streamSchedule);
+		}
+		catch (error) {console.error('Fehler beim auslesen des Streamzeitplans: ', error);}
 		if(livemsg)
 			livemsg.delete()
 				.then(() => {livemsg = null; console.log('Livestream Benachrichtigung erfolgreich geloescht.')})

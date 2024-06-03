@@ -35,5 +35,3 @@ module.exports = class extends Event{
         if(channel) channel.send(embed);
     }
 }
-
-//announcements
