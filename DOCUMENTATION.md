@@ -1,1 +1,3 @@
-# Documentation for Random-Gaming-Servers Discord-Bot
+# Dokumentation for Random-Gaming-Servers Discord-Bot
+
+## Inhalt

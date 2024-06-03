@@ -5,7 +5,7 @@ const config = require("../../../config.json");
 const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 //const twitchConfig = require("../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
 
-let localClient;
+let localClient = null;
 let liveMessageSent = false;
 let livemsg = null;
 
