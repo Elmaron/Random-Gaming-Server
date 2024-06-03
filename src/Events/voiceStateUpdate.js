@@ -14,7 +14,7 @@ module.exports = class extends Event{
                 const embed = new MessageEmbed()
                 .setColor('BLUE')
                 .addField('STREAM IS NOW OFFLINE', [
-                    `${newMember.member.nickname ? newMember.member.nickname : 'A User'} is now streaming in ${newMember.guild.channels.cache.find(ch => ch.name === 'live')}`,
+                    `${newMember.member.nickname ? newMember.member.nickname : 'A User'} is now streaming Beatsaber in ${newMember.guild.channels.cache.find(ch => ch.name === 'live')}`,
                     `${newMember.guild.roles.cache.find(role => role.name === 'Mit Glied')} and ${newMember.guild.roles.cache.find(role => role.name === 'Randomizer')}, join and watch it :D`
                 ]);
                 const channel = newMember.guild.channels.cache.find(ch => ch.name === 'announcements');
@@ -28,7 +28,7 @@ module.exports = class extends Event{
         const embed = new MessageEmbed()
             .setColor('BLUE')
             .addField('STREAM IS ON', [
-                `${newMember.member.nickname ? newMember.member.nickname : 'A User'} is now streaming in ${newMember.guild.channels.cache.find(ch => ch.name === 'live')}`,
+                `${newMember.member.nickname ? newMember.member.nickname : 'A User'} is now streaming Beatsaber in ${newMember.guild.channels.cache.find(ch => ch.name === 'live')}`,
                 `${newMember.guild.roles.cache.find(role => role.name === 'Mit Glied')} and ${newMember.guild.roles.cache.find(role => role.name === 'Randomizer')}, join and watch it :D`
             ]);
         const channel = newMember.guild.channels.cache.find(ch => ch.name === 'announcements');
