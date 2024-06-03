@@ -165,7 +165,7 @@ async function upgradeRoles() {
 	for(let i = 0; i < roles.length-1; i++) {
 		let membersWithRole = guild.members.cache.filter(member => member.roles.cache.has(roles[i]));
 
-		console.log(`Es gibt aktuell ${membersWithRole.size} Mitglieder mit der Rolle ${roles[i]}`);
+		console.log(`Es gibt aktuell ${membersWithRole.size} Mitglieder mit der Rolle ${roles[i].tag}`);
 		membersWithRole.forEach(member => {
 			if(!(member.roles.cache.get(roles[i+1]))) 
 			{
