@@ -9,6 +9,7 @@ let localClient;
 let liveMessageSent = false;
 let livemsg = null;
 
+//Dieses Event wird bei jedem Start des Discord-Bots ausgeführt.
 module.exports = class extends Event {
     constructor(...args) {
         super(...args, {
@@ -17,8 +18,7 @@ module.exports = class extends Event {
     }
 
     run() {
-		
-		
+		//Zeige Informationen zum Bot nach dem Laden in der Konsole an.
         console.log([
 			`_______________________________________________\n\n`,
             `Logged in as ${this.client.user.tag}`,
@@ -26,7 +26,7 @@ module.exports = class extends Event {
             `Loaded ${this.client.events.size} events!`//,
 			//`Bot available on the following servers:`
         ].join('\n'));
-		
+
 		//this.client.guilds.cache.forEach(guild => console.log(guild.name));
 
 
@@ -36,8 +36,9 @@ module.exports = class extends Event {
             `${this.client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} users!`
         ];
 		
-		localClient = this.client;
+		localClient = this.client; //Der Client wird gespeichert, um auch außerhalb des Events Zugriff auf ihn zu haben.
 		
+		//Falls die Guidelines geändert wurden und es noch nicht das zugehörige Emoji auf den Guidelines gibt, füge es an dieser Stelle hinzu.
 		(async () => {
 			try{
 				const channel = await(this.client.channels.fetch(serverConfig.Guidelines.channelId));
@@ -59,7 +60,7 @@ module.exports = class extends Event {
 		})();
 
         let i = 0;
-        setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000);
+        setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000); //Zeige regelmäßig Infos zum Bot und Server.
 		
 		sendLiveMessage();
 		setInterval(sendLiveMessage, 2 * 60 * 1000);
@@ -70,7 +71,7 @@ module.exports = class extends Event {
     }
 }
 
-// Funktion, um ein Auth-Token zu erhalten
+// Funktion, um ein Auth-Token zu erhalten (wird für die Twitch-API benötigt)
 async function getAuthToken() {
   const authResponse = await fetch('https://id.twitch.tv/oauth2/token', {
 	method: 'POST',
@@ -88,6 +89,7 @@ async function getAuthToken() {
   return authData.access_token;
 }
 
+//Überprüfe, ob ein Streamer (unter server-config) gerade auf Twitch live ist und schicke ggf. eine Nachricht oder lösche diese, sobald der Nutzer wieder offline ist.
 async function sendLiveMessage() {
 	const livechannel = await localClient.channels.cache.get(serverConfig.Livestream.announcementChannel);
 	
@@ -143,6 +145,7 @@ async function sendLiveMessage() {
 	}
 }
 
+//Verändere die Rollen von Nutzern mit bestimmten Rollen, sobald eine bestimmte Dauer vorbei ist.
 async function upgradeRoles() {
 	let roles = serverConfig.RoleUpgrades.roles; //Die erste Rolle muss eine Rolle sein, von der aus geupgraded wird
 	if(roles.length <= 1) return console.log("Es sind nicht genug Rollen zum upgraden vordefiniert!");

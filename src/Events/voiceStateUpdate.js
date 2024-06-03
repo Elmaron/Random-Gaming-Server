@@ -2,6 +2,7 @@ const Event = require('../Structures/Event.js');
 const { MessageEmbed, UserFlags } = require('discord.js');
 //const moment = require('moment');
 
+//Schicke eine Benachrichtigung in einen Text-Channel, sobald jemand in einem bestimmten Voice-Channel live geht.
 module.exports = class extends Event{
 
     async run(oldMember, newMember){

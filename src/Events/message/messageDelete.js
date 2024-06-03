@@ -1,6 +1,7 @@
 const Event = require('../../Structures/Event.js');
 const MenuDocsEmbed = require('../../Structures/MenuDocsEmbed.js');
 
+//Falls Nachrichten auf dem Server gelöscht werden, wird in einen Channel eine Nachricht mit Inhalt und Autor der gelöschten Nachricht zugeschickt.
 module.exports = class extends Event {
     async run(message) {
         if(!message.guild || message.author.bot) return;

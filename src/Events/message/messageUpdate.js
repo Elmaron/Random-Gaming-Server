@@ -3,6 +3,7 @@ const MenuDocsEmbed = require('../../Structures/MenuDocsEmbed.js');
 const { Util: { escapeMarkdown } } = require('discord.js');
 const { diffWordsWithSpace } = require('diff');
 
+//Falls Nachrichten auf dem Server geändert werden, wird in einen Channel eine Nachricht mit dem alten Inhalt und Autor der veränderten Nachricht zugeschickt.
 module.exports = class extends Event {
 
     async run(old, message) {

@@ -2,6 +2,7 @@ const Event = require('../Structures/Event.js');
 const { MessageEmbed } = require('discord.js');
 const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 
+//Wenn jemand neues dem Server joined, wird dem Nutzer eine Willkommensnachricht mit weiteren Informationen zugeschickt. 
 module.exports = class extends Event{
 
     async run(member){

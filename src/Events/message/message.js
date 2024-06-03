@@ -1,5 +1,6 @@
 const Event = require('../../Structures/Event.js');
 
+//Dieses Event verarbeitet Nachrichten, die von Nutzern verschickt werden. Duch dieses Event können ggf. Befehle von Nutzern ausgeführt werden.
 module.exports = class extends Event {
 
     async run (message) {

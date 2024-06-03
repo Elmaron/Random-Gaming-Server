@@ -1,10 +1,11 @@
 const Event = require('../Structures/Event.js');
 const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 
+//Bestimmte Dinge auf dem Server erfordern die Verarbeitung durch die Rohdaten, die Discord abschickt, wenn etwas auf dem Server passiert. Dieses Event kann diese Rohdaten verarbeiten.
 module.exports = class extends Event {
 	
 	async run(packet) {
-		//console.log('Event called!');
+		//Der Weitere Verlauf der Methode wird nur ausgeführt, wenn es sich bei der Aktion auf dem Discord-Server um eine Reaktion handelt.
 		if (!['MESSAGE_REACTION_ADD'].includes(packet.t)) return; //, 'MESSAGE_REACTION_REMOVE'
         const { d: data } = packet;
         const user = await this.client.users.fetch(data.user_id);
@@ -18,6 +19,7 @@ module.exports = class extends Event {
 		
 	}
 	
+	//Falls jemand auf eine bestimmte Nachricht mit einem bestimmten Emoji reagiert, wird dieser Person eine bestimmte Rolle zugewiesen.
 	async addRoleOnReaction(message, user, data, settings)
 	{
 		if (message.id === settings.messageId) {
