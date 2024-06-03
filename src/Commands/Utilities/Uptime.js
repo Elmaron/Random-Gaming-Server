@@ -1,6 +1,7 @@
 const Command = require('../../Structures/Command.js');
 const ms = require('ms');
 
+//Zeigt an, wie lange der Bot bereits online ist.
 module.exports = class extends Command {
 
     constructor(...args) {

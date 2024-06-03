@@ -6,6 +6,7 @@ const { runInNewContext } = require('vm');
 const os = require('os');
 const ms = require('ms');
 
+//Zeigt Informationen über den Bot und das System, auf dem er läuft.
 module.exports = class extends Command {
 
     constructor(...args) {

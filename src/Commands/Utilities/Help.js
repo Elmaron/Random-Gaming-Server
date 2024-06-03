@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const Command = require('../../Structures/Command.js');
 
+//Zeigt alle Befehle in einer Übersicht an. Falls ein bestimmter Befehl mit angegeben wird, werden Informationen zu diesem einen Befehl angezeigt.
 module.exports = class extends Command {
 
     constructor(...args) {

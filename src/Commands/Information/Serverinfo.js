@@ -30,6 +30,7 @@ const regions = {
 	'us-south': 'US South'
 };
 
+//Zeigt Informationen über den Server an, auf dem der Befehl ausgeführt wird.
 module.exports = class extends Command {
 
     constructor(...args) {
