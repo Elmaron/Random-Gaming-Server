@@ -2,6 +2,7 @@ const Event = require('../Structures/Event.js');
 const { MessageEmbed } = require('discord.js');
 const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
 
+//Wenn jemand neues dem Server joined, wird dem Nutzer eine Willkommensnachricht mit weiteren Informationen zugeschickt. 
 module.exports = class extends Event{
 
     async run(member){
@@ -22,6 +23,13 @@ module.exports = class extends Event{
                 `\nFalls du einen Moment Zeit hast, wäre es cool, wenn du dir einmal die [Richtlinien](${linkToGuidelines}) durchlesen und akzeptieren könntest, um das volle Erlebnis des Servers genießen zu können!`
             ]);
         const channel = member.guild.channels.cache.get(serverConfig.welcomeChannel);
-        if(channel) channel.send(embed);
+        if(channel) 
+            {
+                await delay(5000);
+                channel.send(embed);
+            }
     }
 }
+
+//Eine Funktion, die etwas innerhalb einer Async-Funktion verzögert. Kann dafür verwendet werden, bestimmte Befehle später ausführen zu lassen.
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));

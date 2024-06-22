@@ -1,7 +1,7 @@
 const Command = require('../../Structures/Command.js');
 
+//Dieser Chatbefehl kann dazu benutzt werden, den Bot bestimmte Befehle neu laden zu lassen. Erfordert Administratorberechtigungen für den bot.
 module.exports = class extends Command {
-
     constructor(...args) {
         super(...args, {
             description: 'The Bot can reload single commands this command.',

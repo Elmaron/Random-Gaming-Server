@@ -1,5 +1,6 @@
 const Command = require('../../Structures/Command.js');
 
+//Zeigt die Verbindungsqualität zwischen Server und Discord an.
 module.exports = class extends Command {
 
     constructor(...args) {

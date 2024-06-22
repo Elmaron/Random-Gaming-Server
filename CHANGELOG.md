@@ -5,6 +5,36 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-06-22
+
+### Security
+
+- Einige Packages wurden geupdated, um Sicherheitsprobleme mit dem Bot bei der Verbindung zum Netz zu fixen.
+
+### Fixed
+
+- src/Events/ready.js
+  
+  - Die Rollen wurden in der Konsole nicht mit Namen angezeigt, wenn geprüft wird, ob bestimmte Leute diese Rolle bereits besitzen. Dieser Fehler ist nun behoben.
+
+- src/Events/guildMemberAdd.js
+  
+  - Die Willkommensnachricht wird nun etwas verzögert verschickt, damit der Neuankömmling dies auch mitbekommt.
+
+### Added
+
+- Der Code enthält nun Kommentare, die die verschiedenen Funktionen der einzelnen Zeilen im Groben erläutern.
+
+- src/Events/voiceStateUpdate.js
+  
+  - Wenn jemand in einem bestimmten Voicechat Live geht, wird dies nun auch im entsprechenden Announcement-Channel angezeigt. 
+
+### Changed
+
+- src/Events/ready.js
+  
+  - Die Live-Stream Message wurde ein bisschen überarbeitet.
+
 ## [1.0.1] - 2024-05-27
 
 ### Fixed

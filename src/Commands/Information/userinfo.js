@@ -30,6 +30,7 @@ const regions = {
 	'us-south': 'US South'
 };
 
+//Zeigt Informationen über einen bestimmten Nutzer auf dem Server an. 
 module.exports = class extends Command {
 
     constructor(...args) {

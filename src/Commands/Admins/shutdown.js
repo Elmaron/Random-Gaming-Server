@@ -1,5 +1,6 @@
 const Command = require('../../Structures/Command.js');
 
+//Kann den Bot aus der Ferne ausschalten. Erfordert Administratorberechtigungen für den Bot.
 module.exports = class extends Command {
 
     constructor(...args) {

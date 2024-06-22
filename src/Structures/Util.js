@@ -6,21 +6,25 @@ const glob = promisify(require('glob'));
 const Command = require('./Command.js');
 const Event = require('./Event.js')
 
+//Die Utilklasse enthält viele Methoden zur grundlegenden Verarbeitung bestimmter Anfragen.
 module.exports = class Util {
     constructor(client) {
         this.client = client;
     }
 
+    //Überprüft, ob die Eingabe eine Klasse ist.
     isClass(input) {
         return typeof input === 'function' &&
         typeof input.prototype === 'object' &&
         input.toString().substring(0, 5) === 'class';
     }
 
+    //Gibt den aktuellen Pfad einer Datei im System zurück.
     get directory() {
         return `${path.dirname(require.main.filename)}${path.sep}`;
     }
 
+    //Kürzt ein Array auf eine Länge von 10 und fügt einen Hinweis hinzu, dass es mehr Einträge als angegeben gibt.
     trimArray(arr, maxLen = 10) {
         if(arr.length > maxLen) {
             const len = arr.length - maxLen;
@@ -30,6 +34,7 @@ module.exports = class Util {
         return arr;
     }
 
+    //Gibt Bytes in den passenden Größen formatiert zurück.
     formatBytes(bytes) {
         if(bytes === 0) return '0 Bytes';
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -37,14 +42,17 @@ module.exports = class Util {
         return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(2))} ${sizes[i]}`;
     }
 
+    //Löscht Duplikate aus einem String.
     removeDuplicates(str) {
         return [...new Set(str)];
     }
 
+    //Schreibt den Anfangsbuchstaben eines Strings groß.
     capitalise(string) {
         return string.split(' ').map(str => str.slice(0, 1).toUpperCase() + str.slice(1)).join(' ');
     }
 
+    //Lädt alle Chatbefehle, die im Ordner "Commands" definiert wurden, in den Arbeitsspeicher des Bots
     async loadCommands() {
         return glob(`${this.directory}Commands/**/*.js`).then(commands => {
             console.log('util.js called >> loading commands');
@@ -69,6 +77,7 @@ module.exports = class Util {
         })
     }
 
+    //Lädt alle Events, die im Ordner "Events" definiert wurden, in den Arbeitsspeicher des Bots
     async loadEvents() {
         return glob(`${this.directory}Events/**/*.js`).then(events => {
             console.log('util.js called >> loading events');

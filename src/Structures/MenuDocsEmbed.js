@@ -2,8 +2,10 @@ const { MessageEmbed } = require('discord.js');
 
 const ZWS = '\u200B';
 
+//Diese Klasse dient der Verarbeitunng und dem abschicken von eingebetten Nachrichten und arbeitet auf der Basis von Discords MessageEmebed.
 module.exports = class MenuDocsEmbed extends MessageEmbed {
 
+    //Fügt eine Methode hinzu, mit der Titel von Content/Title abgespalten werden können.
     splitFields(contentOrTitle, rawContent) {
         if(typeof contentOrTitle === 'undefined') return this;
 

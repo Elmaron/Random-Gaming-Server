@@ -2,6 +2,7 @@ const { exec } = require('child_process');
 const path = require('path');
 const Command = require('../../Structures/Command.js');
 
+//Dieser Chatbefehl kann den Bot aus der ferne neustarten. Erfordert Administratorberechtigungen für den Bot.
 module.exports = class extends Command{
 
     constructor(...args) {
