@@ -1,9 +1,9 @@
 const fetch = require('node-fetch');
 const Event = require('../Structures/Event');
 const { MessageEmbed } = require('discord.js');
-const config = require("../../../config.json");
-const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
-//const twitchConfig = require("../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
+const config = require("../../../../config.json");
+const serverConfig = require("../Config/Server/RANDOM GAMING SERVER.json");
+//const twitchConfig = require("../../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
 
 let localClient = null;
 let liveMessageSent = false;

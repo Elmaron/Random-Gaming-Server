@@ -1,5 +1,5 @@
 const { MessageEmbed, version: djsversion } = require('discord.js');
-const { version } = require('../../../package.json');
+const { version } = require('../../../../package.json');
 const { utc } = require('moment');
 const Command = require('../../Structures/Command.js');
 const { runInNewContext } = require('vm');

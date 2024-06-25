@@ -1,6 +1,6 @@
 # Changelog
 
-Diese Datei enthält alle (wichtigen) Änderungen zum Discord-Server. Für Änderungen zum Discord-Bot schau bitte in die Datei "CHANGELOG.md".
+Diese Datei enthält alle (wichtigen) Änderungen zum Discord-Server. Für Änderungen zum Discord-Bot schau bitte in die Datei "CHANGELOG.md". Für Änderungen zum Server schau bitte in die Datei "CHANGELOG-SERVER.md".
 
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
