@@ -1,0 +1,20 @@
+{
+  "guildId": "1255092174303920179",
+  "welcomeChannel": "1255092174731608176",
+  "announcementChannel": "1255092174731608176",
+  "advancementsChannel": "1255092174731608176",
+  "RoleUpgrades": {
+    "roles": [ "1255093497799774292", "1255093546533519481", "1255093575524552775" ],
+    "passedTime": [ "14" ]
+  },
+  "Guidelines": {
+    "channelId": "1255092174731608176",
+    "messageId": "1255093338819006505",
+    "reactionId": "✅",
+    "roleId": "1255093497799774292"
+  },
+  "Livestream": {
+    "twitchChannels": "ElmaronStanford",
+    "announcementChannel": "1255092174731608176"
+  }
+}

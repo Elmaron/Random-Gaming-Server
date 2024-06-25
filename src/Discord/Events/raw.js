@@ -1,5 +1,5 @@
 const Event = require('../Structures/Event.js');
-const serverConfig = require("../../server-config/RANDOM GAMING SERVER.json");
+const serverConfig = require("../Config/Server/RANDOM GAMING SERVER.json");
 
 //Bestimmte Dinge auf dem Server erfordern die Verarbeitung durch die Rohdaten, die Discord abschickt, wenn etwas auf dem Server passiert. Dieses Event kann diese Rohdaten verarbeiten.
 module.exports = class extends Event {
