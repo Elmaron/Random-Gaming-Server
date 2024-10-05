@@ -1,3 +1,4 @@
+const path = require('path');
 const { spawn } = require('child_process');
 
 let critErr = [0, 0];
@@ -28,8 +29,8 @@ function startBot(scriptPath, botName, botnumber) {
 }
 
 // Pfade zu den Bot-Skripten
-const botDiscordPath = './Discord/index.js'; 
-const botTwitchPath = './Twitch/index.js';
+const botDiscordPath = `${path.dirname(require.main.filename)}${path.sep}Discord/index.js`; 
+const botTwitchPath = `${path.dirname(require.main.filename)}${path.sep}Twitch/index.js`;
 
 // Starten des Discord- und Twitch-Bots
 const botDiscord = startBot(botDiscordPath, 'Discord', 0);
