@@ -54,7 +54,7 @@ async function checkLiveStatus() {
 }
 
 checkLiveStatus();
-setInterval(checkLiveStatus, 1 * 30 * 1000);
+setInterval(checkLiveStatus, 5 * 30 * 1000);
 
 (async () => {
   try {

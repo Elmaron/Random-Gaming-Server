@@ -66,15 +66,16 @@ module.exports = class extends Event {
         setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000); //Zeige regelmäßig Infos zum Bot und Server.
 		
 		sendLiveMessage();
-		setInterval(sendLiveMessage, 1 * 10 * 1000);
+		setInterval(sendLiveMessage, 5 * 60 * 1000);
 
 		upgradeRoles();
-		setInterval(upgradeRoles, 1000 * 60 * 60 * 6); //die letzte Zahl sind die Stunden
+		setInterval(upgradeRoles, 1000 * 60 * 60 * 8); //die letzte Zahl sind die Stunden
         // this.client.user.setActivity('discord.js', { type: 'WATCHING' });
     }
 }
 
 // Funktion, um ein Auth-Token zu erhalten (wird für die Twitch-API benötigt)
+/*
 async function getAuthToken() {
   const authResponse = await fetch('https://id.twitch.tv/oauth2/token', {
 	method: 'POST',
@@ -90,7 +91,7 @@ async function getAuthToken() {
 
   const authData = await authResponse.json();
   return authData.access_token;
-}
+}*/
 
 //Überprüfe, ob ein Streamer (unter server-config) gerade auf Twitch live ist und schicke ggf. eine Nachricht oder lösche diese, sobald der Nutzer wieder offline ist.
 async function sendLiveMessage() {
