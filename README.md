@@ -17,7 +17,8 @@ Der Code steht euch ansonsten frei zur Verfügung, ihr könnt ihn auch gerne her
     },
     "TwitchAPI": {
         "client_id": "<Client-id>",
-        "client_secret": "<Client-secret>"
+        "client_secret": "<Client-secret>",
+        "access_token": "<access-token>"
     }
 }
 ```

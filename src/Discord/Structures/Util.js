@@ -4,7 +4,8 @@ const { promisify } = require('util');
 const { runInThisContext } = require('vm');
 const glob = promisify(require('glob'));
 const Command = require('./Command.js');
-const Event = require('./Event.js')
+const Event = require('./Event.js');
+const TimedEvent = require('./TimedEvent.js');
 
 //Die Utilklasse enthält viele Methoden zur grundlegenden Verarbeitung bestimmter Anfragen.
 module.exports = class Util {
@@ -58,7 +59,7 @@ module.exports = class Util {
             console.log('util.js called >> loading commands');
             console.log(`-- Loading commands from ${this.directory}Commands/**/*.js --`);
             for(const commandFile of commands) {
-                console.log(`-> Found: ${commandFile}`);
+                //console.log(`-> Found: ${commandFile}`);
                 delete require.cache[commandFile];
                 const { name } = path.parse(commandFile);
                 const File = require(commandFile);
@@ -71,7 +72,7 @@ module.exports = class Util {
                         this.client.aliases.set(alias, command.name);
                     }
                 }
-                console.log(`-> Loaded: ${command.name}`);
+                //console.log(`-> Loaded: ${command.name}`);
             }
             console.log('util.js called >> commands loaded');
         })
@@ -83,7 +84,7 @@ module.exports = class Util {
             console.log('util.js called >> loading events');
             console.log(`-- Loading events from ${this.directory}Events/**/*.js --`);
             for(const eventFile of events) {
-                console.log(`-> Found: ${eventFile}`);
+                //console.log(`-> Found: ${eventFile}`);
                 delete require.cache[eventFile];
                 const { name } = path.parse(eventFile);
                 const File = require(eventFile);
@@ -93,9 +94,47 @@ module.exports = class Util {
                 this.client.events.set(event.name, event);
 				//console.log(`Registering event: ${name}`);
                 event.emitter[event.type](name, (...args) => {/*console.log(`Event ${name} triggered.`); */event.run(...args);});
-                console.log(`-> Loaded: ${event.name}`);
+                //console.log(`-> Loaded: ${event.name}`);
             }
             console.log('util.js called >> events loaded');
+        })
+    }
+
+    //Lädt alle zeitlich eingestellten Events, die im Ordner "TimedEvents" definiert wurden und startet diese.
+    async loadTimed() {
+        return glob(`${this.directory}TimedEvents/**/*.js`).then(events => {
+            console.log('util.js called >> loading timed');
+            console.log(`-- Loading events from ${this.directory}TimedEvents/**/*.js --`);
+            for(const eventFile of events) {
+                //console.log(`-> Found: ${eventFile}`);
+                delete require.cache[eventFile];
+                const { name } = path.parse(eventFile);
+                const File = require(eventFile);
+                if(!this.isClass(File)) throw new TypeError(`Event ${name} doesn't export a class!`);
+                const event = new File(this.client, name);
+                if(!(event instanceof TimedEvent)) throw new TypeError(`Event ${name} doesn't belong in timed events.`);
+                
+                if(event.getType() == "timer") setInterval(event.run, event.getTime() * 60 * 1000);
+                else {
+                    const now = new Date();
+                    const target = event.getTime().split(':');
+                    const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), parseInt(target[0]), parseInt(target[1]));
+
+                    // Falls die Zielzeit bereits vergangen ist, füge einen Tag hinzu
+                    if (now > targetTime) {
+                        targetTime.setDate(targetTime.getDate() + 1);
+                    }
+
+                    const timeout = targetTime.getTime() - now.getTime();
+
+                    setTimeout(() => {
+                        event.run();
+                        setInterval(event.run, 24 * 60 * 60 * 1000);
+                    }, timeout);
+                }
+                event.run();
+            }
+            console.log('util.js called >> timed loaded');
         })
     }
 

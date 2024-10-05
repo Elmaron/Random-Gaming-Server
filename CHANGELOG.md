@@ -5,6 +5,31 @@ Diese Datei enthält alle (wichtigen) Änderungen zu Dateien & dem Discord-Bot i
 Das Format basiert auf [Führe ein Changelog](https://keepachangelog.com/en/1.1.0/),
 und das Projekt haftet an ["Semantic Versioning"](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-10-05
+
+### Added
+
+- src/Twitch/index.js
+  - Das Twitch Modul steht nun zur Verfügung. Die restlichen Teile wurden fast vollständig nach Plan implementiert (es fehlen timed events).
+
+- src/index.js
+  - Datei besitzt nun ein besseres Fehlerhandling für die Module und kann sie automatisch neustarten
+
+- src/Discord/Structures/TimedEvent.js
+
+  - Dient zur Erstellung von Ereignissen, die zu bestimmten Zeitpunkten oder nach einer bestimmten Zeit erneut ausgeführt werden sollen.
+  - Noch nicht fertig implementiert, da sie noch nicht ganz funktionsfähig sind. Wird in nächster Zeit fertig gestellt.
+
+- Timed Events
+  - sendLiveMessage -> Bei einem Livestream eines bestimmten Kanals auf Twitch, kann der Bot eine Benachrichtigung auf Discord in einen zuvor ausgewählten Textkanal schicken.
+  - upgradeRoles -> Der Bot verändert bestimmte Rollen nach einer Weile und kann so neue Berechtigungen für Mitglieder hinzufügen, die schon länger auf dem Server sind.
+
+### Changed
+
+- src/Discord/Events/ready.js
+
+  - Die Livestreambenachrichtigung wurde erneut angepasst.
+
 ## [1.1.1] - 2024-06-25
 
 ### Added
