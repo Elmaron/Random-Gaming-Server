@@ -1,9 +1,12 @@
 const fetch = require('node-fetch');
 const Event = require('../Structures/Event');
 const { MessageEmbed } = require('discord.js');
+const ch = require('../../CacheHandler/CacheHandler.js');
 const config = require("../../../../config.json");
 const serverConfig = require("../Config/Server/RANDOM GAMING SERVER.json");
 //const twitchConfig = require("../../../../../SECRET DISCORD ADDITIONS/Twitch-API/twitch-config.json");
+
+const cache = new ch('Discord');
 
 let localClient = null;
 let liveMessageSent = false;
@@ -63,7 +66,7 @@ module.exports = class extends Event {
         setInterval(() => this.client.user.setActivity(`${this.client.prefix}help | ${activities[i++ % activities.length]}`, { type: 'LISTENING' }), 15000); //Zeige regelmäßig Infos zum Bot und Server.
 		
 		sendLiveMessage();
-		setInterval(sendLiveMessage, 2 * 60 * 1000);
+		setInterval(sendLiveMessage, 1 * 10 * 1000);
 
 		upgradeRoles();
 		setInterval(upgradeRoles, 1000 * 60 * 60 * 6); //die letzte Zahl sind die Stunden
@@ -91,6 +94,42 @@ async function getAuthToken() {
 
 //Überprüfe, ob ein Streamer (unter server-config) gerade auf Twitch live ist und schicke ggf. eine Nachricht oder lösche diese, sobald der Nutzer wieder offline ist.
 async function sendLiveMessage() {
+	const currentCache = await cache.read();
+	if(new Date(currentCache.Twitch.checkLiveStatus.updated) <= new Date(currentCache.Discord.TimedEventCache.sendLiveMessage.lastUpdated)) return;
+	const data = currentCache.Twitch.checkLiveStatus.streamData.data;
+	if(data.length > 0)
+	{
+		console.log(`${data[0].user_name} is live, streaming ${data[0].title} with ${data[0].viewer_count} viewers.`);
+		//console.log("StreamData: ", data);
+		const livechannel = await localClient.channels.cache.get(serverConfig.Livestream.announcementChannel);
+		if(livechannel) {
+			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! @everyone , schaut gerne vorbei! ^^\n` +
+				`**${data[0].title}** (${data[0].language}) | ${data[0].viewer_count}\n` +
+				`*Game/Spiel:* ${data[0].game_name}` //This should work now - 11-07-2022
+			)
+				.then(message => {livemsg = message;})
+				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
+		} else {
+			console.error('Kanal nicht gefunden!')
+			
+		}
+	} else {
+		if(livemsg)
+			livemsg.delete()
+				.then(() => {livemsg = null; console.log('Livestream Benachrichtigung erfolgreich geloescht.')})
+				.catch(error => console.error('Fehler beim loeschen der Livestream-Benachrichtigung'));
+	}
+	const newCache = {
+		TimedEventCache: {
+		  sendLiveMessage: {
+			livemsg: null,
+			lastUpdated: new Date().toISOString()
+		  }
+		}
+	  };
+	await cache.update(newCache);
+
+	/*
 	const livechannel = await localClient.channels.cache.get(serverConfig.Livestream.announcementChannel);
 	
 	const token = await getAuthToken();
@@ -120,7 +159,10 @@ async function sendLiveMessage() {
 		console.log("StreamData: ", streamData);
 		if(livechannel)
 		{
-			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! @everyone, schaut gerne vorbei! ^^`)
+			livechannel.send(`[${serverConfig.Livestream.twitchChannels}](https://www.twitch.tv/${serverConfig.Livestream.twitchChannels}) ist gerade live! @everyone , schaut gerne vorbei! ^^\n` +
+				`**${streamData.data[0].title}** (${streamData.data[0].language}) | ${streamData.data[0].viewer_count}\n` +
+				`*Game/Spiel:* ${streamData.data[0].game_name}` //This should work now - 11-07-2022
+			)
 				.then(message => {livemsg = message;})
 				.catch(error => console.log('Fehler beim Senden der Livestream-Benachrichtigung: ', error));
 		} else {
@@ -144,7 +186,7 @@ async function sendLiveMessage() {
 				.then(() => {livemsg = null; console.log('Livestream Benachrichtigung erfolgreich geloescht.')})
 				.catch(error => console.error('Fehler beim loeschen der Livestream-Benachrichtigung'));
 	} else {
-		/*
+		//*
 		console.log(`${serverConfig.Livestream.twitchChannels} ist nicht live.`);
 		if(livechannel)
 		{
@@ -153,8 +195,8 @@ async function sendLiveMessage() {
 		} else {
 			console.error('Kanal nicht gefunden!')
 		}
-		*/
-	}
+		///
+	}//*/
 }
 
 //Verändere die Rollen von Nutzern mit bestimmten Rollen, sobald eine bestimmte Dauer vorbei ist.
@@ -207,7 +249,7 @@ async function upgradeRoles() {
 								advancementsChannel.send(embed);
 							}
 						} catch(error)	{
-							console.error(`Rolle von ${member.user.tag} konnte nicht richtig geupgraded werden. Fehler: `, error);
+							console.error(`Rolle von ${member.user.tag} konnte nicht geupgraded werden. Fehler: `, error);
 						}})();
 					}
 				}

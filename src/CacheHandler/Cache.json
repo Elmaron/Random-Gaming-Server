@@ -1,0 +1,17 @@
+{
+  "Twitch": {
+    "checkLiveStatus": {
+      "updated": "2024-10-05T16:37:00.227Z",
+      "streamData": {
+        "data": []
+      }
+    }
+  },
+  "Discord": {
+    "TimedEventCache": {
+      "sendLiveMessage": {
+        "lastUpdated": "2024-10-05T16:37:00.579Z"
+      }
+    }
+  }
+}

@@ -46,6 +46,7 @@ module.exports = class MenuDocsClient extends Client {
     async start(token = this.token) {
         this.utils.loadCommands();
         this.utils.loadEvents();
+        //this.utils.loadTimed();
         super.login(token);
         console.log('Connection successful.\n________________________________________________\n\n');
     }
