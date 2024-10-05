@@ -1,7 +1,7 @@
 {
   "Twitch": {
     "checkLiveStatus": {
-      "updated": "2024-10-05T19:05:29.411Z",
+      "updated": "2024-10-05T19:18:57.624Z",
       "streamData": {
         "data": []
       }
@@ -11,7 +11,7 @@
     "TimedEventCache": {
       "sendLiveMessage": {
         "livemsg": null,
-        "lastUpdated": "2024-10-05T19:05:28.762Z"
+        "lastUpdated": "2024-10-05T19:18:57.328Z"
       }
     }
   }

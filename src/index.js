@@ -29,8 +29,8 @@ function startBot(scriptPath, botName, botnumber) {
 }
 
 // Pfade zu den Bot-Skripten
-const botDiscordPath = `${path.dirname(require.main.filename)}${path.sep}Discord/index.js`; 
-const botTwitchPath = `${path.dirname(require.main.filename)}${path.sep}Twitch/index.js`;
+const botDiscordPath = path.join(__dirname, 'Discord/index.js'); //`${path.dirname(require.main.filename)}${path.sep}Discord/index.js`; 
+const botTwitchPath = path.join(__dirname, 'Twitch/index.js'); //`${path.dirname(require.main.filename)}${path.sep}Twitch/index.js`;
 
 // Starten des Discord- und Twitch-Bots
 const botDiscord = startBot(botDiscordPath, 'Discord', 0);

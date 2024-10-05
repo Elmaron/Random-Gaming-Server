@@ -1,14 +1,16 @@
 const fs = require('fs').promises;
+const path = require('path');
 
 module.exports = class ch {
     constructor(module) {
         this.module = module;
+        this.path = path.join(__dirname, 'Cache.json');
     }
 
     //Ruft den Cache ab
     async read() {
         try {
-            const data = await fs.readFile('./CacheHandler/Cache.json', 'utf8');
+            const data = await fs.readFile(this.path, 'utf8');
             return JSON.parse(data);
         } catch (err) {
             console.error('Fehler beim Lesen des Caches: ', err);
@@ -27,7 +29,7 @@ module.exports = class ch {
             cache[this.module] = { ...data };
 
             //Cache schreiben
-            await fs.writeFile('./CacheHandler/Cache.json', JSON.stringify(cache, null, 2), 'utf8');
+            await fs.writeFile(this.path, JSON.stringify(cache, null, 2), 'utf8');
             console.log('Cache erfolgreich aktualisiert');
 
         } catch (err) {
